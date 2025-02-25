@@ -10,12 +10,14 @@ class NavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
+      extendBody: true,
       routes: [
         SearchScreenRoute(),
         FavoriteScreenRoute(),
       ],
       bottomNavigationBuilder: (context, tabsRouter) {
         return BottomNavigationBar(
+          backgroundColor: Colors.transparent,
           currentIndex: tabsRouter.activeIndex,
           onTap: tabsRouter.setActiveIndex,
           items: [

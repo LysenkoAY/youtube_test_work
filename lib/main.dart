@@ -17,8 +17,9 @@ class YouTubeTest extends StatelessWidget {
       routerConfig: router.config(),
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        bottomSheetTheme: const BottomSheetThemeData(
-          surfaceTintColor: Colors.transparent,
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.white70,
         ),
       ),
     );
