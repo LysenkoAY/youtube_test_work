@@ -31,7 +31,6 @@ class SearchScreenBloc extends StatelessWidget {
             onSearch: (value) => context.read<SearchBloc>().add(SearchEvent.search(value)),
             onClear: () => context.read<SearchBloc>().add(SearchEvent.clear()),
             pagingController: pagingController,
-            onFavorite: (value) => context.read<SearchBloc>().add(SearchEvent.favorite(value)),
             onDetail: (video) => context.router.push(
               DetailScreenRoute(
                 videoId: video.videoId!,

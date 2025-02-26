@@ -14,7 +14,6 @@ class SearchScreen extends StatelessWidget {
     required this.onSearch,
     required this.onClear,
     required this.pagingController,
-    required this.onFavorite,
     required this.onDetail,
   });
 
@@ -23,7 +22,6 @@ class SearchScreen extends StatelessWidget {
   final Function(String value) onSearch;
   final Function() onClear;
   final PagingController<int, Video> pagingController;
-  final Function(Video video) onFavorite;
   final Function(Video video) onDetail;
 
   @override
@@ -39,7 +37,6 @@ class SearchScreen extends StatelessWidget {
               builderDelegate: PagedChildBuilderDelegate(
                 itemBuilder: (context, item, index) => VideoCard(
                   video: item,
-                  onFavorite: onFavorite,
                   onDetail: onDetail,
                 ),
               ),
@@ -66,7 +63,7 @@ class SearchScreen extends StatelessWidget {
                 builder: (context, controller, focusNode) => Padding(
                   padding: const EdgeInsets.only(left: 16, right: 16),
                   child: CupertinoSearchTextField(
-                    backgroundColor: Colors.white,
+                    backgroundColor: Colors.white70,
                     controller: controller,
                     focusNode: focusNode,
                     placeholder: 'Поиск',

@@ -57,6 +57,6 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
   }
 
   void _onDelete(_Delete event, Emitter<FavoriteState> emit) async {
-    drift.delete(event.video.videoId);
+    await drift.delete(event.video.videoId);
   }
 }

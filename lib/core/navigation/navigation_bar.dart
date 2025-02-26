@@ -17,7 +17,7 @@ class NavigationBar extends StatelessWidget {
       ],
       bottomNavigationBuilder: (context, tabsRouter) {
         return BottomNavigationBar(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.black38,
           currentIndex: tabsRouter.activeIndex,
           onTap: tabsRouter.setActiveIndex,
           items: [

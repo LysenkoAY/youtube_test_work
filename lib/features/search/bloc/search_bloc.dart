@@ -18,6 +18,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   SearchBloc() : super(const SearchState.loading()) {
     on<_Initial>(_onInitial);
     on<_Search>(_onSearch);
+    on<_CheckFavorite>(_onCheckFavorite);
     on<_Favorite>(_onFavorite);
     on<_Clear>(_onClear);
 
@@ -66,8 +67,18 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     pagingController.refresh();
   }
 
+  void _onCheckFavorite(_CheckFavorite event, Emitter<SearchState> emit) async {
+    event.onCallBack.value = await drift.isFavorite(event.videoId);
+  }
+
   void _onFavorite(_Favorite event, Emitter<SearchState> emit) async {
-    drift.insert(event.video, searchString);
+    if (event.onCallBack.value!) {
+      await drift.delete(event.video.videoId!);
+      event.onCallBack.value = false;
+    } else {
+      await drift.insert(event.video, searchString);
+      event.onCallBack.value = true;
+    }
   }
 
   void _onClear(_Clear event, Emitter<SearchState> emit) async {

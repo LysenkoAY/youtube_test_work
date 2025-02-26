@@ -20,7 +20,10 @@ mixin _$SearchEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(String value) search,
-    required TResult Function(Video video) favorite,
+    required TResult Function(Video video, ValueNotifier<bool?> onCallBack)
+        favorite,
+    required TResult Function(String videoId, ValueNotifier<bool?> onCallBack)
+        checkFavorite,
     required TResult Function() clear,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +31,9 @@ mixin _$SearchEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(String value)? search,
-    TResult? Function(Video video)? favorite,
+    TResult? Function(Video video, ValueNotifier<bool?> onCallBack)? favorite,
+    TResult? Function(String videoId, ValueNotifier<bool?> onCallBack)?
+        checkFavorite,
     TResult? Function()? clear,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +41,9 @@ mixin _$SearchEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String value)? search,
-    TResult Function(Video video)? favorite,
+    TResult Function(Video video, ValueNotifier<bool?> onCallBack)? favorite,
+    TResult Function(String videoId, ValueNotifier<bool?> onCallBack)?
+        checkFavorite,
     TResult Function()? clear,
     required TResult orElse(),
   }) =>
@@ -46,6 +53,7 @@ mixin _$SearchEvent {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Search value) search,
     required TResult Function(_Favorite value) favorite,
+    required TResult Function(_CheckFavorite value) checkFavorite,
     required TResult Function(_Clear value) clear,
   }) =>
       throw _privateConstructorUsedError;
@@ -54,6 +62,7 @@ mixin _$SearchEvent {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Search value)? search,
     TResult? Function(_Favorite value)? favorite,
+    TResult? Function(_CheckFavorite value)? checkFavorite,
     TResult? Function(_Clear value)? clear,
   }) =>
       throw _privateConstructorUsedError;
@@ -62,6 +71,7 @@ mixin _$SearchEvent {
     TResult Function(_Initial value)? initial,
     TResult Function(_Search value)? search,
     TResult Function(_Favorite value)? favorite,
+    TResult Function(_CheckFavorite value)? checkFavorite,
     TResult Function(_Clear value)? clear,
     required TResult orElse(),
   }) =>
@@ -132,7 +142,10 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(String value) search,
-    required TResult Function(Video video) favorite,
+    required TResult Function(Video video, ValueNotifier<bool?> onCallBack)
+        favorite,
+    required TResult Function(String videoId, ValueNotifier<bool?> onCallBack)
+        checkFavorite,
     required TResult Function() clear,
   }) {
     return initial();
@@ -143,7 +156,9 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(String value)? search,
-    TResult? Function(Video video)? favorite,
+    TResult? Function(Video video, ValueNotifier<bool?> onCallBack)? favorite,
+    TResult? Function(String videoId, ValueNotifier<bool?> onCallBack)?
+        checkFavorite,
     TResult? Function()? clear,
   }) {
     return initial?.call();
@@ -154,7 +169,9 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String value)? search,
-    TResult Function(Video video)? favorite,
+    TResult Function(Video video, ValueNotifier<bool?> onCallBack)? favorite,
+    TResult Function(String videoId, ValueNotifier<bool?> onCallBack)?
+        checkFavorite,
     TResult Function()? clear,
     required TResult orElse(),
   }) {
@@ -170,6 +187,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Search value) search,
     required TResult Function(_Favorite value) favorite,
+    required TResult Function(_CheckFavorite value) checkFavorite,
     required TResult Function(_Clear value) clear,
   }) {
     return initial(this);
@@ -181,6 +199,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Search value)? search,
     TResult? Function(_Favorite value)? favorite,
+    TResult? Function(_CheckFavorite value)? checkFavorite,
     TResult? Function(_Clear value)? clear,
   }) {
     return initial?.call(this);
@@ -192,6 +211,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_Search value)? search,
     TResult Function(_Favorite value)? favorite,
+    TResult Function(_CheckFavorite value)? checkFavorite,
     TResult Function(_Clear value)? clear,
     required TResult orElse(),
   }) {
@@ -276,7 +296,10 @@ class _$SearchImpl implements _Search {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(String value) search,
-    required TResult Function(Video video) favorite,
+    required TResult Function(Video video, ValueNotifier<bool?> onCallBack)
+        favorite,
+    required TResult Function(String videoId, ValueNotifier<bool?> onCallBack)
+        checkFavorite,
     required TResult Function() clear,
   }) {
     return search(value);
@@ -287,7 +310,9 @@ class _$SearchImpl implements _Search {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(String value)? search,
-    TResult? Function(Video video)? favorite,
+    TResult? Function(Video video, ValueNotifier<bool?> onCallBack)? favorite,
+    TResult? Function(String videoId, ValueNotifier<bool?> onCallBack)?
+        checkFavorite,
     TResult? Function()? clear,
   }) {
     return search?.call(value);
@@ -298,7 +323,9 @@ class _$SearchImpl implements _Search {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String value)? search,
-    TResult Function(Video video)? favorite,
+    TResult Function(Video video, ValueNotifier<bool?> onCallBack)? favorite,
+    TResult Function(String videoId, ValueNotifier<bool?> onCallBack)?
+        checkFavorite,
     TResult Function()? clear,
     required TResult orElse(),
   }) {
@@ -314,6 +341,7 @@ class _$SearchImpl implements _Search {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Search value) search,
     required TResult Function(_Favorite value) favorite,
+    required TResult Function(_CheckFavorite value) checkFavorite,
     required TResult Function(_Clear value) clear,
   }) {
     return search(this);
@@ -325,6 +353,7 @@ class _$SearchImpl implements _Search {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Search value)? search,
     TResult? Function(_Favorite value)? favorite,
+    TResult? Function(_CheckFavorite value)? checkFavorite,
     TResult? Function(_Clear value)? clear,
   }) {
     return search?.call(this);
@@ -336,6 +365,7 @@ class _$SearchImpl implements _Search {
     TResult Function(_Initial value)? initial,
     TResult Function(_Search value)? search,
     TResult Function(_Favorite value)? favorite,
+    TResult Function(_CheckFavorite value)? checkFavorite,
     TResult Function(_Clear value)? clear,
     required TResult orElse(),
   }) {
@@ -364,7 +394,7 @@ abstract class _$$FavoriteImplCopyWith<$Res> {
           _$FavoriteImpl value, $Res Function(_$FavoriteImpl) then) =
       __$$FavoriteImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({Video video});
+  $Res call({Video video, ValueNotifier<bool?> onCallBack});
 }
 
 /// @nodoc
@@ -381,12 +411,17 @@ class __$$FavoriteImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? video = null,
+    Object? onCallBack = null,
   }) {
     return _then(_$FavoriteImpl(
-      null == video
+      video: null == video
           ? _value.video
           : video // ignore: cast_nullable_to_non_nullable
               as Video,
+      onCallBack: null == onCallBack
+          ? _value.onCallBack
+          : onCallBack // ignore: cast_nullable_to_non_nullable
+              as ValueNotifier<bool?>,
     ));
   }
 }
@@ -394,14 +429,16 @@ class __$$FavoriteImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FavoriteImpl implements _Favorite {
-  const _$FavoriteImpl(this.video);
+  const _$FavoriteImpl({required this.video, required this.onCallBack});
 
   @override
   final Video video;
+  @override
+  final ValueNotifier<bool?> onCallBack;
 
   @override
   String toString() {
-    return 'SearchEvent.favorite(video: $video)';
+    return 'SearchEvent.favorite(video: $video, onCallBack: $onCallBack)';
   }
 
   @override
@@ -409,11 +446,13 @@ class _$FavoriteImpl implements _Favorite {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FavoriteImpl &&
-            (identical(other.video, video) || other.video == video));
+            (identical(other.video, video) || other.video == video) &&
+            (identical(other.onCallBack, onCallBack) ||
+                other.onCallBack == onCallBack));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, video);
+  int get hashCode => Object.hash(runtimeType, video, onCallBack);
 
   /// Create a copy of SearchEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -428,10 +467,13 @@ class _$FavoriteImpl implements _Favorite {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(String value) search,
-    required TResult Function(Video video) favorite,
+    required TResult Function(Video video, ValueNotifier<bool?> onCallBack)
+        favorite,
+    required TResult Function(String videoId, ValueNotifier<bool?> onCallBack)
+        checkFavorite,
     required TResult Function() clear,
   }) {
-    return favorite(video);
+    return favorite(video, onCallBack);
   }
 
   @override
@@ -439,10 +481,12 @@ class _$FavoriteImpl implements _Favorite {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(String value)? search,
-    TResult? Function(Video video)? favorite,
+    TResult? Function(Video video, ValueNotifier<bool?> onCallBack)? favorite,
+    TResult? Function(String videoId, ValueNotifier<bool?> onCallBack)?
+        checkFavorite,
     TResult? Function()? clear,
   }) {
-    return favorite?.call(video);
+    return favorite?.call(video, onCallBack);
   }
 
   @override
@@ -450,12 +494,14 @@ class _$FavoriteImpl implements _Favorite {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String value)? search,
-    TResult Function(Video video)? favorite,
+    TResult Function(Video video, ValueNotifier<bool?> onCallBack)? favorite,
+    TResult Function(String videoId, ValueNotifier<bool?> onCallBack)?
+        checkFavorite,
     TResult Function()? clear,
     required TResult orElse(),
   }) {
     if (favorite != null) {
-      return favorite(video);
+      return favorite(video, onCallBack);
     }
     return orElse();
   }
@@ -466,6 +512,7 @@ class _$FavoriteImpl implements _Favorite {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Search value) search,
     required TResult Function(_Favorite value) favorite,
+    required TResult Function(_CheckFavorite value) checkFavorite,
     required TResult Function(_Clear value) clear,
   }) {
     return favorite(this);
@@ -477,6 +524,7 @@ class _$FavoriteImpl implements _Favorite {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Search value)? search,
     TResult? Function(_Favorite value)? favorite,
+    TResult? Function(_CheckFavorite value)? checkFavorite,
     TResult? Function(_Clear value)? clear,
   }) {
     return favorite?.call(this);
@@ -488,6 +536,7 @@ class _$FavoriteImpl implements _Favorite {
     TResult Function(_Initial value)? initial,
     TResult Function(_Search value)? search,
     TResult Function(_Favorite value)? favorite,
+    TResult Function(_CheckFavorite value)? checkFavorite,
     TResult Function(_Clear value)? clear,
     required TResult orElse(),
   }) {
@@ -499,14 +548,191 @@ class _$FavoriteImpl implements _Favorite {
 }
 
 abstract class _Favorite implements SearchEvent {
-  const factory _Favorite(final Video video) = _$FavoriteImpl;
+  const factory _Favorite(
+      {required final Video video,
+      required final ValueNotifier<bool?> onCallBack}) = _$FavoriteImpl;
 
   Video get video;
+  ValueNotifier<bool?> get onCallBack;
 
   /// Create a copy of SearchEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FavoriteImplCopyWith<_$FavoriteImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CheckFavoriteImplCopyWith<$Res> {
+  factory _$$CheckFavoriteImplCopyWith(
+          _$CheckFavoriteImpl value, $Res Function(_$CheckFavoriteImpl) then) =
+      __$$CheckFavoriteImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String videoId, ValueNotifier<bool?> onCallBack});
+}
+
+/// @nodoc
+class __$$CheckFavoriteImplCopyWithImpl<$Res>
+    extends _$SearchEventCopyWithImpl<$Res, _$CheckFavoriteImpl>
+    implements _$$CheckFavoriteImplCopyWith<$Res> {
+  __$$CheckFavoriteImplCopyWithImpl(
+      _$CheckFavoriteImpl _value, $Res Function(_$CheckFavoriteImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of SearchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? videoId = null,
+    Object? onCallBack = null,
+  }) {
+    return _then(_$CheckFavoriteImpl(
+      videoId: null == videoId
+          ? _value.videoId
+          : videoId // ignore: cast_nullable_to_non_nullable
+              as String,
+      onCallBack: null == onCallBack
+          ? _value.onCallBack
+          : onCallBack // ignore: cast_nullable_to_non_nullable
+              as ValueNotifier<bool?>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CheckFavoriteImpl implements _CheckFavorite {
+  const _$CheckFavoriteImpl({required this.videoId, required this.onCallBack});
+
+  @override
+  final String videoId;
+  @override
+  final ValueNotifier<bool?> onCallBack;
+
+  @override
+  String toString() {
+    return 'SearchEvent.checkFavorite(videoId: $videoId, onCallBack: $onCallBack)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CheckFavoriteImpl &&
+            (identical(other.videoId, videoId) || other.videoId == videoId) &&
+            (identical(other.onCallBack, onCallBack) ||
+                other.onCallBack == onCallBack));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, videoId, onCallBack);
+
+  /// Create a copy of SearchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CheckFavoriteImplCopyWith<_$CheckFavoriteImpl> get copyWith =>
+      __$$CheckFavoriteImplCopyWithImpl<_$CheckFavoriteImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String value) search,
+    required TResult Function(Video video, ValueNotifier<bool?> onCallBack)
+        favorite,
+    required TResult Function(String videoId, ValueNotifier<bool?> onCallBack)
+        checkFavorite,
+    required TResult Function() clear,
+  }) {
+    return checkFavorite(videoId, onCallBack);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String value)? search,
+    TResult? Function(Video video, ValueNotifier<bool?> onCallBack)? favorite,
+    TResult? Function(String videoId, ValueNotifier<bool?> onCallBack)?
+        checkFavorite,
+    TResult? Function()? clear,
+  }) {
+    return checkFavorite?.call(videoId, onCallBack);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String value)? search,
+    TResult Function(Video video, ValueNotifier<bool?> onCallBack)? favorite,
+    TResult Function(String videoId, ValueNotifier<bool?> onCallBack)?
+        checkFavorite,
+    TResult Function()? clear,
+    required TResult orElse(),
+  }) {
+    if (checkFavorite != null) {
+      return checkFavorite(videoId, onCallBack);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Search value) search,
+    required TResult Function(_Favorite value) favorite,
+    required TResult Function(_CheckFavorite value) checkFavorite,
+    required TResult Function(_Clear value) clear,
+  }) {
+    return checkFavorite(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Search value)? search,
+    TResult? Function(_Favorite value)? favorite,
+    TResult? Function(_CheckFavorite value)? checkFavorite,
+    TResult? Function(_Clear value)? clear,
+  }) {
+    return checkFavorite?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Search value)? search,
+    TResult Function(_Favorite value)? favorite,
+    TResult Function(_CheckFavorite value)? checkFavorite,
+    TResult Function(_Clear value)? clear,
+    required TResult orElse(),
+  }) {
+    if (checkFavorite != null) {
+      return checkFavorite(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CheckFavorite implements SearchEvent {
+  const factory _CheckFavorite(
+      {required final String videoId,
+      required final ValueNotifier<bool?> onCallBack}) = _$CheckFavoriteImpl;
+
+  String get videoId;
+  ValueNotifier<bool?> get onCallBack;
+
+  /// Create a copy of SearchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CheckFavoriteImplCopyWith<_$CheckFavoriteImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -553,7 +779,10 @@ class _$ClearImpl implements _Clear {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(String value) search,
-    required TResult Function(Video video) favorite,
+    required TResult Function(Video video, ValueNotifier<bool?> onCallBack)
+        favorite,
+    required TResult Function(String videoId, ValueNotifier<bool?> onCallBack)
+        checkFavorite,
     required TResult Function() clear,
   }) {
     return clear();
@@ -564,7 +793,9 @@ class _$ClearImpl implements _Clear {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(String value)? search,
-    TResult? Function(Video video)? favorite,
+    TResult? Function(Video video, ValueNotifier<bool?> onCallBack)? favorite,
+    TResult? Function(String videoId, ValueNotifier<bool?> onCallBack)?
+        checkFavorite,
     TResult? Function()? clear,
   }) {
     return clear?.call();
@@ -575,7 +806,9 @@ class _$ClearImpl implements _Clear {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(String value)? search,
-    TResult Function(Video video)? favorite,
+    TResult Function(Video video, ValueNotifier<bool?> onCallBack)? favorite,
+    TResult Function(String videoId, ValueNotifier<bool?> onCallBack)?
+        checkFavorite,
     TResult Function()? clear,
     required TResult orElse(),
   }) {
@@ -591,6 +824,7 @@ class _$ClearImpl implements _Clear {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Search value) search,
     required TResult Function(_Favorite value) favorite,
+    required TResult Function(_CheckFavorite value) checkFavorite,
     required TResult Function(_Clear value) clear,
   }) {
     return clear(this);
@@ -602,6 +836,7 @@ class _$ClearImpl implements _Clear {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Search value)? search,
     TResult? Function(_Favorite value)? favorite,
+    TResult? Function(_CheckFavorite value)? checkFavorite,
     TResult? Function(_Clear value)? clear,
   }) {
     return clear?.call(this);
@@ -613,6 +848,7 @@ class _$ClearImpl implements _Clear {
     TResult Function(_Initial value)? initial,
     TResult Function(_Search value)? search,
     TResult Function(_Favorite value)? favorite,
+    TResult Function(_CheckFavorite value)? checkFavorite,
     TResult Function(_Clear value)? clear,
     required TResult orElse(),
   }) {

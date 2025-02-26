@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:youtube_scrape_api/models/video.dart';
 
 import '../../widgets/rotation_card.dart';
+import 'favorite_icon.dart';
 
 class VideoCard extends StatelessWidget {
   const VideoCard({
     super.key,
     required this.video,
-    required this.onFavorite,
     required this.onDetail,
   });
 
   final Video video;
-  final Function(Video video) onFavorite;
   final Function(Video video) onDetail;
 
   @override
@@ -29,7 +28,7 @@ class VideoCard extends StatelessWidget {
               image: DecorationImage(image: Image.network(video.thumbnails![0].url!).image, fit: BoxFit.cover),
             ),
           ),
-          IconButton(onPressed: () => onFavorite(video), icon: Icon(Icons.favorite, size: 48, color: Colors.redAccent)),
+          FavoriteIcon(video: video),
         ],
       ),
       back: Stack(
@@ -44,17 +43,19 @@ class VideoCard extends StatelessWidget {
             ),
             child: Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Column(children: [
-                const SizedBox(height: 32),
-                Text(video.title!, style: TextStyle(fontSize: 24)),
-                const SizedBox(height: 16),
-                Text(video.channelName!),
-                const SizedBox(height: 16),
-                Text(video.views!),
-              ],),
+              child: Column(
+                children: [
+                  const SizedBox(height: 32),
+                  Text(video.title!, style: TextStyle(fontSize: 24)),
+                  const SizedBox(height: 16),
+                  Text(video.channelName!),
+                  const SizedBox(height: 16),
+                  Text(video.views!),
+                ],
+              ),
             ),
           ),
-          IconButton(onPressed: () => onFavorite(video), icon: Icon(Icons.favorite, size: 48, color: Colors.redAccent)),
+          FavoriteIcon(video: video),
         ],
       ),
     );
