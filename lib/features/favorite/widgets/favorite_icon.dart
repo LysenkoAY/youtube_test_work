@@ -20,7 +20,7 @@ class _FavoriteIconState extends State<FavoriteIcon> {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed: () => context.read<FavoriteBloc>().add(FavoriteEvent.delete(video: widget.video)),
+      onPressed: () => context.read<FavoriteBloc>().add(FavoriteEvent.delete(widget.video)),
       icon: Icon(Icons.favorite, size: 48, color: Colors.redAccent),
     );
   }

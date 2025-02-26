@@ -58,5 +58,6 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
 
   void _onDelete(_Delete event, Emitter<FavoriteState> emit) async {
     await drift.delete(event.video.videoId);
+    pagingController.refresh();
   }
 }
