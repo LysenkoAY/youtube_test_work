@@ -10,30 +10,33 @@ class NavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AutoTabsScaffold(
-      extendBody: true,
-      routes: [
-        SearchScreenRoute(),
-        FavoriteScreenRoute(),
-      ],
-      bottomNavigationBuilder: (context, tabsRouter) {
-        return BottomNavigationBar(
-          backgroundColor: Colors.black38,
-          currentIndex: tabsRouter.activeIndex,
-          onTap: tabsRouter.setActiveIndex,
-          items: [
-            BottomNavigationBarItem(label: "Пoиск", icon: Icon(Icons.search)),
-            BottomNavigationBarItem(
-              label: "Избранное",
-              icon: Badge.count(
-                count: AppInheritedModel.countOf(context),
-                isLabelVisible: AppInheritedModel.countOf(context) > 0,
-                child: Icon(Icons.favorite_border),
+    return AppInheritedModel(
+      data: AppModel(list: []),
+      child: AutoTabsScaffold(
+        extendBody: true,
+        routes: [
+          SearchScreenRoute(),
+          FavoriteScreenRoute(),
+        ],
+        bottomNavigationBuilder: (context, tabsRouter) {
+          return BottomNavigationBar(
+            backgroundColor: Colors.black38,
+            currentIndex: tabsRouter.activeIndex,
+            onTap: tabsRouter.setActiveIndex,
+            items: [
+              BottomNavigationBarItem(label: "Пoиск", icon: Icon(Icons.search)),
+              BottomNavigationBarItem(
+                label: "Избранное",
+                icon: Badge.count(
+                  count: AppInheritedModel.countOf(context),
+                  isLabelVisible: AppInheritedModel.countOf(context) > 0,
+                  child: Icon(Icons.favorite_border),
+                ),
               ),
-            ),
-          ],
-        );
-      },
+            ],
+          );
+        },
+      ),
     );
   }
 }

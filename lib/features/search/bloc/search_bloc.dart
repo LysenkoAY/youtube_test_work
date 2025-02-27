@@ -7,6 +7,7 @@ import 'package:youtube_scrape_api/models/video.dart';
 import 'package:youtube_scrape_api/youtube_scrape_api.dart';
 
 import '../../../core/database/drift_repository.dart';
+import '../../../core/inherited/model.dart';
 
 part 'search_event.dart';
 
@@ -15,7 +16,11 @@ part 'search_state.dart';
 part 'search_bloc.freezed.dart';
 
 class SearchBloc extends Bloc<SearchEvent, SearchState> {
-  SearchBloc() : super(const SearchState.loading()) {
+  //final AppInheritedModel model;
+
+  SearchBloc(
+    //required this.model,
+  ) : super(const SearchState.loading()) {
     on<_Initial>(_onInitial);
     on<_Search>(_onSearch);
     on<_CheckFavorite>(_onCheckFavorite);

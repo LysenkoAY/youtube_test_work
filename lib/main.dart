@@ -6,10 +6,7 @@ import 'core/navigation/app_router.dart';
 
 void main() {
   addInjection();
-  runApp(AppInheritedModel(
-    data: AppModel(list: []),
-    child: const YouTubeTest(),
-  ));
+  runApp(const YouTubeTest());
 }
 
 class YouTubeTest extends StatelessWidget {

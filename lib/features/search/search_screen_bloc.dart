@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:youtube_test_work/core/navigation/app_router.gr.dart';
 import 'package:youtube_test_work/features/search/search_screen.dart';
 
+import '../../core/inherited/model.dart';
 import 'bloc/search_bloc.dart';
 
 @RoutePage(name: "SearchShellScreenRoute")
@@ -21,7 +22,9 @@ class SearchScreenBloc extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<SearchBloc>(
-      create: (context) => SearchBloc()..add(SearchEvent.initial()),
+      create: (context) => SearchBloc(
+        //model: context.read<AppInheritedModel>(),
+      )..add(SearchEvent.initial()),
       child: BlocBuilder<SearchBloc, SearchState>(
         builder: (context, state) => state.maybeWhen(
           loading: () => const Center(child: CircularProgressIndicator()),
