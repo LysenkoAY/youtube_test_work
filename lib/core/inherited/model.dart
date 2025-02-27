@@ -1,27 +1,26 @@
 import 'package:flutter/cupertino.dart';
 
-class FavoriteGroups {
-  FavoriteGroups({this.list});
-
+class AppModel {
+  AppModel({this.list});
   List<String>? list;
 }
 
-class FavoriteGroupsModel extends InheritedModel<FavoriteGroups> {
-  final FavoriteGroups? user;
+class AppInheritedModel extends InheritedModel<AppModel> {
+  final AppModel? data;
 
-  const FavoriteGroupsModel({super.key, required super.child, this.user});
+  const AppInheritedModel({super.key, required super.child, this.data});
 
-  static FavoriteGroups? of(BuildContext context) {
-    return InheritedModel.inheritFrom<FavoriteGroupsModel>(context)!.user;
+  static int countOf(BuildContext context) {
+    return InheritedModel.inheritFrom<AppInheritedModel>(context)!.data!.list!.length;
   }
 
   @override
-  bool updateShouldNotify(FavoriteGroupsModel oldWidget) {
-    return user != oldWidget.user;
+  bool updateShouldNotify(AppInheritedModel oldWidget) {
+    return data != oldWidget.data;
   }
 
   @override
-  bool updateShouldNotifyDependent(FavoriteGroupsModel oldWidget, Set<FavoriteGroups> dependencies) {
-    return user != oldWidget.user && dependencies.contains(user);
+  bool updateShouldNotifyDependent(AppInheritedModel oldWidget, Set<AppModel> dependencies) {
+    return data != oldWidget.data && dependencies.contains(data);
   }
 }

@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 
 import 'core/di/injection.dart';
+import 'core/inherited/model.dart';
 import 'core/navigation/app_router.dart';
 
 void main() {
   addInjection();
-  runApp(const YouTubeTest());
+  runApp(AppInheritedModel(
+    data: AppModel(list: []),
+    child: const YouTubeTest(),
+  ));
 }
 
 class YouTubeTest extends StatelessWidget {
