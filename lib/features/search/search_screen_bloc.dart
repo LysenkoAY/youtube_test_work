@@ -21,9 +21,10 @@ class SearchScreenBloc extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final model = AppInheritedModel.of(context)?.data;
     return BlocProvider<SearchBloc>(
       create: (context) => SearchBloc(
-        //model: context.read<AppInheritedModel>(),
+        model: model,
       )..add(SearchEvent.initial()),
       child: BlocBuilder<SearchBloc, SearchState>(
         builder: (context, state) => state.maybeWhen(

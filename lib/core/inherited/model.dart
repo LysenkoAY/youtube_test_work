@@ -10,8 +10,8 @@ class AppInheritedModel extends InheritedModel<AppModel> {
 
   const AppInheritedModel({super.key, required super.child, this.data});
 
-  static AppModel? modelOf(BuildContext context) {
-    return InheritedModel.inheritFrom<AppInheritedModel>(context)?.data!;
+  static AppInheritedModel? of(BuildContext context) {
+    return InheritedModel.inheritFrom<AppInheritedModel>(context);
   }
 
   static int countOf(BuildContext context) {

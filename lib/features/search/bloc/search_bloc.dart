@@ -16,11 +16,11 @@ part 'search_state.dart';
 part 'search_bloc.freezed.dart';
 
 class SearchBloc extends Bloc<SearchEvent, SearchState> {
-  //final AppInheritedModel model;
+  final AppModel? model;
 
-  SearchBloc(
-    //required this.model,
-  ) : super(const SearchState.loading()) {
+  SearchBloc({
+    required this.model,
+  }) : super(const SearchState.loading()) {
     on<_Initial>(_onInitial);
     on<_Search>(_onSearch);
     on<_CheckFavorite>(_onCheckFavorite);
