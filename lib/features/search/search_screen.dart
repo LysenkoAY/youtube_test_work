@@ -32,25 +32,20 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-  //bool tablet = true;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
           PagingListener(
-            controller: widget.pagingController,
-            builder: (context, state, fetchNextPage) => PagedGridView<int, Video>(
+              controller: widget.pagingController,
+              builder: (context, state, fetchNextPage) => PagedGridView<int, Video>(
                     state: state,
                     fetchNextPage: fetchNextPage,
                     gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                       maxCrossAxisExtent:
                           Device.screenType == ScreenType.tablet ? 350 : MediaQuery.of(context).size.width,
                       childAspectRatio: 16 / 9,
-                      //crossAxisSpacing: 10,
-                      //mainAxisSpacing: 10,
-                      //crossAxisCount: 3,
                     ),
                     builderDelegate: PagedChildBuilderDelegate(
                       itemBuilder: (context, item, index) => VideoCard(
@@ -59,22 +54,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         notifyDelete: widget.notifyDelete,
                       ),
                     ),
-                  )
-            /*
-                : PagedListView<int, Video>.separated(
-                    state: state,
-                    fetchNextPage: fetchNextPage,
-                    builderDelegate: PagedChildBuilderDelegate(
-                      itemBuilder: (context, item, index) => VideoCard(
-                        video: item,
-                        onDetail: widget.onDetail,
-                        notifyDelete: widget.notifyDelete,
-                      ),
-                    ),
-                    separatorBuilder: (context, index) => const SizedBox(height: 8),
-                  ),
-            */
-          ),
+                  )),
           Positioned(
             top: 64,
             left: 0,
@@ -109,12 +89,6 @@ class _SearchScreenState extends State<SearchScreen> {
                     ),
                   ),
                 ),
-                /*
-                IconButton(
-                  onPressed: () => setState(() => tablet = !tablet),
-                  icon: Icon(tablet ? Icons.tablet_mac : Icons.phone_android, color: Colors.white),
-                )
-                */
               ],
             ),
           ),
