@@ -38,23 +38,23 @@ class _SearchScreenState extends State<SearchScreen> {
       body: Stack(
         children: [
           PagingListener(
-              controller: widget.pagingController,
-              builder: (context, state, fetchNextPage) => PagedGridView<int, Video>(
-                    state: state,
-                    fetchNextPage: fetchNextPage,
-                    gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                      maxCrossAxisExtent:
-                          Device.screenType == ScreenType.tablet ? 350 : MediaQuery.of(context).size.width,
-                      childAspectRatio: 16 / 9,
-                    ),
-                    builderDelegate: PagedChildBuilderDelegate(
-                      itemBuilder: (context, item, index) => VideoCard(
-                        video: item,
-                        onDetail: widget.onDetail,
-                        notifyDelete: widget.notifyDelete,
-                      ),
-                    ),
-                  )),
+            controller: widget.pagingController,
+            builder: (context, state, fetchNextPage) => PagedGridView<int, Video>(
+              state: state,
+              fetchNextPage: fetchNextPage,
+              gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: Device.screenType == ScreenType.tablet ? 350 : MediaQuery.of(context).size.width,
+                childAspectRatio: 16 / 9,
+              ),
+              builderDelegate: PagedChildBuilderDelegate(
+                itemBuilder: (context, item, index) => VideoCard(
+                  video: item,
+                  onDetail: widget.onDetail,
+                  notifyDelete: widget.notifyDelete,
+                ),
+              ),
+            ),
+          ),
           Positioned(
             top: 64,
             left: 0,
