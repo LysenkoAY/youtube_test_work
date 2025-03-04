@@ -32,7 +32,7 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-  bool tablet = true;
+  //bool tablet = true;
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +41,7 @@ class _SearchScreenState extends State<SearchScreen> {
         children: [
           PagingListener(
             controller: widget.pagingController,
-            builder: (context, state, fetchNextPage) => Device.screenType == ScreenType.tablet
-                ? PagedGridView<int, Video>(
+            builder: (context, state, fetchNextPage) => PagedGridView<int, Video>(
                     state: state,
                     fetchNextPage: fetchNextPage,
                     gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
@@ -61,6 +60,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       ),
                     ),
                   )
+            /*
                 : PagedListView<int, Video>.separated(
                     state: state,
                     fetchNextPage: fetchNextPage,
@@ -73,6 +73,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     ),
                     separatorBuilder: (context, index) => const SizedBox(height: 8),
                   ),
+            */
           ),
           Positioned(
             top: 64,
@@ -108,10 +109,12 @@ class _SearchScreenState extends State<SearchScreen> {
                     ),
                   ),
                 ),
+                /*
                 IconButton(
                   onPressed: () => setState(() => tablet = !tablet),
                   icon: Icon(tablet ? Icons.tablet_mac : Icons.phone_android, color: Colors.white),
                 )
+                */
               ],
             ),
           ),
