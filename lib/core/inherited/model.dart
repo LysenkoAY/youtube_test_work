@@ -1,21 +1,35 @@
 import 'package:flutter/cupertino.dart';
 
 class AppModel {
-  AppModel({this.list});
-  List<String>? list;
+  AppModel({required this.list});
+
+  late final List<String>? list;
 }
 
-class AppInheritedModel extends InheritedModel<AppModel> {
-  final AppModel? data;
+class AppInheritedModel extends InheritedModel<bool> {
+  final AppModel data;
+  late final List<String>? list;
 
-  const AppInheritedModel({super.key, required super.child, this.data});
+  AppInheritedModel({super.key, required super.child, required this.data}) {
+    list = data.list;
+  }
+
+  final ValueNotifier<String> notifyDelete = ValueNotifier<String>('');
 
   static AppInheritedModel? of(BuildContext context) {
     return InheritedModel.inheritFrom<AppInheritedModel>(context);
   }
 
+  static List<String>? listOf(BuildContext context) {
+    return InheritedModel.inheritFrom<AppInheritedModel>(context)?.list!;
+  }
+
   static int countOf(BuildContext context) {
     return InheritedModel.inheritFrom<AppInheritedModel>(context)!.data!.list!.length;
+  }
+
+  static ValueNotifier<String>? notify(BuildContext context) {
+    return InheritedModel.inheritFrom<AppInheritedModel>(context)?.notifyDelete;
   }
 
   @override
@@ -24,7 +38,7 @@ class AppInheritedModel extends InheritedModel<AppModel> {
   }
 
   @override
-  bool updateShouldNotifyDependent(AppInheritedModel oldWidget, Set<AppModel> dependencies) {
-    return data != oldWidget.data && dependencies.contains(data);
+  bool updateShouldNotifyDependent(AppInheritedModel oldWidget, Set<bool> dependencies) {
+    return data != oldWidget.data && dependencies.contains(true);
   }
 }

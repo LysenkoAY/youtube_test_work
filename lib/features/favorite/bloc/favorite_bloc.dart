@@ -6,7 +6,6 @@ import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 import '../../../core/database/database.dart';
 import '../../../core/database/drift_repository.dart';
-import '../../../core/inherited/model.dart';
 
 part 'favorite_state.dart';
 

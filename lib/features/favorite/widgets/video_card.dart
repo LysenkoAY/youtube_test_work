@@ -29,7 +29,11 @@ class VideoCard extends StatelessWidget {
               image: DecorationImage(image: Image.network(video.url).image, fit: BoxFit.cover),
             ),
           ),
-          IconButton(onPressed: () => onDelete(video), icon: Icon(Icons.favorite, size: 48, color: Colors.redAccent)),
+          IconButton(
+              onPressed: () {
+                onDelete(video);
+              },
+              icon: Icon(Icons.favorite, size: 48, color: Colors.redAccent)),
         ],
       ),
       back: Stack(
@@ -44,14 +48,16 @@ class VideoCard extends StatelessWidget {
             ),
             child: Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Column(children: [
-                const SizedBox(height: 32),
-                Text(video.title, style: TextStyle(fontSize: 24)),
-                const SizedBox(height: 16),
-                Text(video.channelName),
-                const SizedBox(height: 16),
-                Text(video.views),
-              ],),
+              child: Column(
+                children: [
+                  const SizedBox(height: 32),
+                  Text(video.title, style: TextStyle(fontSize: 24)),
+                  const SizedBox(height: 16),
+                  Text(video.channelName),
+                  const SizedBox(height: 16),
+                  Text(video.views),
+                ],
+              ),
             ),
           ),
           IconButton(onPressed: () => onDelete(video), icon: Icon(Icons.favorite, size: 48, color: Colors.redAccent)),

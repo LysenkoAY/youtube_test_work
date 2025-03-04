@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../core/inherited/model.dart';
 import '../../core/navigation/app_router.gr.dart';
 import 'bloc/favorite_bloc.dart';
 import 'favorites_screen.dart';
@@ -37,6 +38,10 @@ class FavoriteScreenBloc extends StatelessWidget {
                 views: video.views,
               ),
             ),
+            onDelete: (value) {
+              context.read<FavoriteBloc>().add(FavoriteEvent.delete(value));
+              AppInheritedModel.of(context)!.notifyDelete.value = value.videoId;
+            },
           ),
           orElse: () => const SizedBox.shrink(),
         ),

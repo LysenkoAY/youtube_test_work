@@ -14,12 +14,14 @@ class FavoriteScreen extends StatefulWidget {
     required this.onSelect,
     required this.searchingList,
     required this.onDetail,
+    required this.onDelete,
   });
 
   final PagingController<int, VideoEntry> pagingController;
   final ValueNotifier<List<String>> searchingList;
   final Function(int search) onSelect;
   final Function(VideoEntry video) onDetail;
+  final Function(VideoEntry video) onDelete;
 
   @override
   State<FavoriteScreen> createState() => _FavoriteScreenState();
@@ -39,7 +41,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
               builderDelegate: PagedChildBuilderDelegate(
                 itemBuilder: (context, item, index) => VideoCard(
                   video: item,
-                  onDelete: (value) => context.read<FavoriteBloc>().add(FavoriteEvent.delete(value)),
+                  onDelete: widget.onDelete,
                   onDetail: widget.onDetail,
                 ),
               ),

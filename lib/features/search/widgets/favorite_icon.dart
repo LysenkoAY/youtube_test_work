@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sizer/sizer.dart';
 import 'package:youtube_scrape_api/models/video.dart';
 
 import '../bloc/search_bloc.dart';
@@ -7,10 +8,11 @@ import '../bloc/search_bloc.dart';
 class FavoriteIcon extends StatefulWidget {
   const FavoriteIcon({
     super.key,
-    required this.video,
+    required this.video, required this.notifyDelete,
   });
 
   final Video video;
+  final ValueNotifier<String> notifyDelete;
 
   @override
   State<FavoriteIcon> createState() => _FavoriteIconState();
@@ -30,6 +32,11 @@ class _FavoriteIconState extends State<FavoriteIcon> {
             ),
           ),
     );
+    widget.notifyDelete.addListener(() {
+      if (widget.notifyDelete.value == widget.video.videoId) {
+        onFavorite.value = false;
+      }
+    });
   }
 
   @override
@@ -46,7 +53,11 @@ class _FavoriteIconState extends State<FavoriteIcon> {
                         onCallBack: onFavorite,
                       ),
                     ),
-                icon: Icon(value ? Icons.favorite : Icons.favorite_border, size: 48, color: Colors.redAccent),
+                icon: Icon(
+                  value ? Icons.favorite : Icons.favorite_border,
+                  size: Device.screenType == ScreenType.tablet ? 24 : 48,
+                  color: Colors.redAccent,
+                ),
               );
       },
     );

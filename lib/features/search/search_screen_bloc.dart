@@ -43,6 +43,7 @@ class SearchScreenBloc extends StatelessWidget {
                 views: video.views!,
               ),
             ),
+            notifyDelete: AppInheritedModel.of(context)!.notifyDelete,
           ),
           orElse: () => const SizedBox.shrink(),
         ),
