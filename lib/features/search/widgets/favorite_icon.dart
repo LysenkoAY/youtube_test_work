@@ -8,7 +8,8 @@ import '../bloc/search_bloc.dart';
 class FavoriteIcon extends StatefulWidget {
   const FavoriteIcon({
     super.key,
-    required this.video, required this.notifyDelete,
+    required this.video,
+    required this.notifyDelete,
   });
 
   final Video video;

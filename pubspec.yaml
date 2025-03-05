@@ -55,6 +55,9 @@ dependencies:
   drift_flutter: ^0.2.4
   build: ^2.4.2
   youtube_player_flutter: ^9.1.1
+  cached_network_image: ^3.4.1
+  auto_size_text: ^3.0.0
+  sizer: ^3.0.5
 
 dev_dependencies:
   flutter_test:
